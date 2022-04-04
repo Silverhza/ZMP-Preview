@@ -1,0 +1,7 @@
+# pip install -r requirements.txt
+
+# Base ----------------------------------------
+pytransform3d>=1.13.0
+scipy>=1.7.3
+matplotlib>=3.5.1
+numpy>=1.21.5
