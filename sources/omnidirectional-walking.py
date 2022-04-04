@@ -508,20 +508,21 @@ class GaitController():
             t += self.dt
 
         record_trajectory = True
-        if record_trajectory:
-            with open('../data/trajectory.txt', 'w') as f:
-                for i in range(len(rfoot_trajectory)):
-                    print(f, rfoot_trajectory[i])
 
+        if record_trajectory:
+            f = open('../data/trajectory.txt', 'w')
+            for i in range(len(rfoot_trajectory)):
+                f.write(str(rfoot_trajectory[i]))
+            f.close()
         fig = plt.figure(1)
         ax = fig.add_subplot(111, projection='3d')
         com_trajectory = np.array(com_trajectory)
         rfoot_trajectory = np.array(rfoot_trajectory)
         lfoot_trajectory = np.array(lfoot_trajectory)
         # print("foot shape:", rfoot_trajectory.shape[1])
-        plot_trajectory(ax=ax, P=com_trajectory, n_frames=com_trajectory.shape[0], s=0.02, show_direction=False)
-        plot_trajectory(ax=ax, P=rfoot_trajectory, n_frames=rfoot_trajectory.shape[0], s=0.02, show_direction=False)
-        plot_trajectory(ax=ax, P=lfoot_trajectory, n_frames=lfoot_trajectory.shape[0], s=0.02, show_direction=False)
+        plot_trajectory(ax=ax, P=com_trajectory, n_frames=com_trajectory.shape[0], s=0.02, show_direction=True)
+        plot_trajectory(ax=ax, P=rfoot_trajectory, n_frames=rfoot_trajectory.shape[0], s=0.02, show_direction=True)
+        plot_trajectory(ax=ax, P=lfoot_trajectory, n_frames=lfoot_trajectory.shape[0], s=0.02, show_direction=True)
         # ax.plot(list_com_x, list_com_y, list_com_z, 'o')
         # ax.plot(list_zmp_x, list_zmp_y, list_zmp_z)
         # ax.plot(list_r_foot_x, list_r_foot_y, list_r_foot_z, 'o')
