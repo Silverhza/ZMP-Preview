@@ -126,13 +126,13 @@ class GaitController():
     # Fungsi untuk mendapatkan parameter walking gait dari mat file
     def get_gait_parameter(self, filename):
         gait_param = scipy.io.loadmat(filename)
-        self.zc = np.asscalar(gait_param['zc'])
-        self.dt = np.asscalar(gait_param['dt'])
-        self.t_preview = np.asscalar(gait_param['t_preview'])
+        self.zc = gait_param['zc'].item()
+        self.dt = gait_param['dt'].item()
+        self.t_preview = gait_param['t_preview'].item()
         self.A_d = gait_param['A_d']
         self.B_d = gait_param['B_d']
         self.C_d = gait_param['C_d']
-        self.Gi = np.asscalar(gait_param['Gi'])
+        self.Gi = gait_param['Gi'].item()
         self.Gx = gait_param['Gx']
         self.Gd = gait_param['Gd']
         self.preview_len = int(self.t_preview / self.dt)
@@ -363,8 +363,8 @@ class GaitController():
 
     # Fungsi untuk mengenerate com trajectory
     def get_preview_control(self):
-        y_x = np.asscalar(self.C_d.dot(self.x_x))
-        y_y = np.asscalar(self.C_d.dot(self.x_y))
+        y_x = self.C_d.dot(self.x_x).item()
+        y_y = self.C_d.dot(self.x_y).item()
         
         e_x = self.zmp_x[0] - y_x
         e_y = self.zmp_y[0] - y_y
@@ -376,8 +376,10 @@ class GaitController():
             preview_x += self.Gd[0, j] * self.zmp_x[j]
             preview_y += self.Gd[0, j] * self.zmp_y[j]
 
-        u_x = np.asscalar(-self.Gi * e_x - self.Gx.dot(self.x_x) - preview_x)
-        u_y = np.asscalar(-self.Gi * e_y - self.Gx.dot(self.x_y) - preview_y)
+        u_x = -self.Gi * e_x - self.Gx.dot(self.x_x) - preview_x
+        u_x = u_x.item()
+        u_y = -self.Gi * e_y - self.Gx.dot(self.x_y) - preview_y
+        u_y = u_y.item()
         
         self.x_x = self.A_d.dot(self.x_x) + self.B_d * u_x 
         self.x_y = self.A_d.dot(self.x_y) + self.B_d * u_y
