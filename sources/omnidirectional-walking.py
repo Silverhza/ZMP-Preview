@@ -160,9 +160,9 @@ class GaitController():
     
     # Fungsi untuk mendapatkan parameter walking gait dari mat file
     def get_gait_parameter(self):    
-        Q = 1
+        Q = 10
         R = 1e-6
-        g = 9.8
+        g = 9.81
         self.zc = 0.23
         self.dt = 0.01
         self.t_preview = 1.2
@@ -523,12 +523,12 @@ class GaitController():
         while t < t_sim:
             self.get_walking_pattern()
             if self.pattern_ready:
-                self.print_pose("com", self.com, rpy_mode=False)
-                self.print_pose("left foot", self.left_foot[0], rpy_mode=False)
-                self.print_pose("left foot pose", self.left_foot_pose, rpy_mode=False)
-                self.print_pose("right foot", self.right_foot[0], rpy_mode=False)
-                self.print_pose("right foot pose", self.right_foot_pose, rpy_mode=False)
-                print("=============================================")
+                # self.print_pose("com", self.com, rpy_mode=False)
+                # self.print_pose("left foot", self.left_foot[0], rpy_mode=False)
+                # self.print_pose("left foot pose", self.left_foot_pose, rpy_mode=False)
+                # self.print_pose("right foot", self.right_foot[0], rpy_mode=False)
+                # self.print_pose("right foot pose", self.right_foot_pose, rpy_mode=False)
+                # print("=============================================")
                 list_com_x.append(self.com[0])
                 list_com_y.append(self.com[1])
                 list_com_z.append(self.com[2])
