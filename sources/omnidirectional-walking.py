@@ -9,6 +9,7 @@ import os
 from pytransform3d.trajectories import *
 #from tf.transformations import quaternion_from_euler, euler_from_quaternion
 from scipy.spatial.transform import Rotation as R
+from control.matlab import dare # for solving the discrete algebraic Riccati equation
 
 _EPS = np.finfo(float).eps * 4.0
 _AXES2TUPLE = { 
@@ -122,20 +123,56 @@ class GaitController():
         self.support_y = 0
         self.body_tilt = 0
         self.foot_y = 0
+        
+    def calculatePreviewControlParams(self,A, B, C, Q, R, N):
+        C_dot_A = C*A
+        C_dot_B = C*B
 
+        A_tilde = np.matrix([[1, C_dot_A[0,0], C_dot_A[0,1], C_dot_A[0,2]],
+                                [0, A[0,0], A[0,1], A[0,2]],
+                                [0, A[1,0], A[1,1], A[1,2]],
+                                [0, A[2,0], A[2,1], A[2,2]]])
+        B_tilde = np.matrix([[C_dot_B[0,0]],
+                                [B[0,0]],
+                                [B[1,0]],
+                                [B[2,0]]])
+        C_tilde = np.matrix([[1, 0, 0, 0]])
+
+        [P_tilde, _, _] = dare(A_tilde, B_tilde, C_tilde.T*Q*C_tilde, R)
+        K_tilde = (R + B_tilde.T*P_tilde*B_tilde).I*(B_tilde.T*P_tilde*A_tilde)
+
+        Ks = K_tilde[0, 0]
+        Kx = K_tilde[0, 1:]
+
+        Ac_tilde = A_tilde - B_tilde*K_tilde
+
+        G = np.zeros((1, N))
+
+        G[0] = -Ks
+        I_tilde = np.matrix([[1],[0],[0],[0]])
+        X_tilde = -Ac_tilde.T*P_tilde*I_tilde
+
+        for i in range(N):
+            G[0,i] = (R + B_tilde.T*P_tilde*B_tilde).I*(B_tilde.T)*X_tilde
+            X_tilde = Ac_tilde.T*X_tilde
+
+        return Ks, Kx, G
+    
     # Fungsi untuk mendapatkan parameter walking gait dari mat file
-    def get_gait_parameter(self, filename):
-        gait_param = scipy.io.loadmat(filename)
-        self.zc = gait_param['zc'].item()
-        self.dt = gait_param['dt'].item()
-        self.t_preview = gait_param['t_preview'].item()
-        self.A_d = gait_param['A_d']
-        self.B_d = gait_param['B_d']
-        self.C_d = gait_param['C_d']
-        self.Gi = gait_param['Gi'].item()
-        self.Gx = gait_param['Gx']
-        self.Gd = gait_param['Gd']
+    def get_gait_parameter(self):    
+        Q = 1
+        R = 1e-6
+        g = 9.8
+        self.zc = 0.23
+        self.dt = 0.01
+        self.t_preview = 1.2
         self.preview_len = int(self.t_preview / self.dt)
+        self.A_d = np.mat(([1, self.dt, self.dt**2/2],
+                [0, 1, self.dt],
+                [0, 0, 1]))
+        self.B_d = np.mat((self.dt**3/6, self.dt**2/2, self.dt)).T
+        self.C_d = np.mat((1, 0, -self.zc/g))
+        self.Gi, self.Gx, self.Gd = self.calculatePreviewControlParams(self.A_d, self.B_d, self.C_d, Q, R, self.preview_len)
         self.dt_bez = 1 / (self.t_ssp / self.dt)
 
     def print_gait_parameter(self):
@@ -440,8 +477,8 @@ class GaitController():
 
     def initialize(self):
         # Initialize gait controller
-        gait_param_file = '../data/wpg_parameter.mat'
-        self.get_gait_parameter(gait_param_file)
+        # gait_param_file = '../data/wpg_parameter.mat'
+        self.get_gait_parameter()
         self.print_gait_parameter()
         # offset parameter
         # self.support_x = rospy.get_param("/gait_param/support_x")
