@@ -1,0 +1,751 @@
+<?xml version="0.0" ?>
+<robot name="simplecart">
+	<link name="base_link">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<mass value="6.00000"/>
+			<inertia ixx="0.00000" ixy="0" ixz="0" iyy="0.00000" iyz="0" izz="0.00000"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<box size="0.60000 0.30000 0.10000"/>
+			</geometry>
+			<material name="mat_-1_0">
+				<color rgba="0.60000 0.70000 0.80000 1.00000" />
+			</material>
+		</visual>
+	</link>
+	<link name="left_hinge">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 1.57075" xyz="0.00000 0.00000 0.00000"/>
+			<mass value="0.01000"/>
+			<inertia ixx="0.00000" ixy="0" ixz="0" iyy="0.00000" iyz="0" izz="0.00000"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 1.57075" xyz="0.00000 0.10000 0.00000"/>
+			<geometry>
+				<box size="0.20000 0.02000 0.02000"/>
+			</geometry>
+			<material name="mat_0_0">
+				<color rgba="0.00000 0.00000 0.00000 1.00000" />
+			</material>
+		</visual>
+	</link>
+	<link name="left_front_wheel">
+		<inertial>
+			<origin rpy="0.00000 1.57080 -1.57080" xyz="0.00000 0.00000 0.00000"/>
+			<mass value="0.30000"/>
+			<inertia ixx="0.00109" ixy="0" ixz="0" iyy="0.00109" iyz="0" izz="0.00204"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 1.57080 -1.57080" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<cylinder length="0.05000" radius="0.10000"/>
+			</geometry>
+			<material name="mat_1_0">
+				<color rgba="0.00000 0.00000 0.00000 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 1.57080 -1.57080" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<cylinder length="0.05000" radius="0.10000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="right_hinge">
+		<inertial>
+			<origin rpy="0.00000 0.00000 -1.57075" xyz="0.00000 0.00000 0.00000"/>
+			<mass value="0.01000"/>
+			<inertia ixx="0.00000" ixy="0" ixz="0" iyy="0.00000" iyz="0" izz="0.00000"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 0.00000 -1.57075" xyz="0.00000 -0.10000 0.00000"/>
+			<geometry>
+				<box size="0.20000 0.02000 0.02000"/>
+			</geometry>
+			<material name="mat_2_0">
+				<color rgba="0.00000 0.00000 0.00000 1.00000" />
+			</material>
+		</visual>
+	</link>
+	<link name="right_front_wheel">
+		<inertial>
+			<origin rpy="0.00000 -1.57080 -1.57080" xyz="0.00000 0.00000 0.00000"/>
+			<mass value="0.30000"/>
+			<inertia ixx="0.00109" ixy="0" ixz="0" iyy="0.00109" iyz="0" izz="0.00204"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -1.57080 -1.57080" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<cylinder length="0.05000" radius="0.10000"/>
+			</geometry>
+			<material name="mat_3_0">
+				<color rgba="0.00000 0.00000 0.00000 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -1.57080 -1.57080" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<cylinder length="0.05000" radius="0.10000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="left_back_wheel">
+		<inertial>
+			<origin rpy="0.00000 1.57080 -1.57080" xyz="0.00000 0.00000 0.00000"/>
+			<mass value="0.30000"/>
+			<inertia ixx="0.00109" ixy="0" ixz="0" iyy="0.00109" iyz="0" izz="0.00204"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 1.57080 -1.57080" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<cylinder length="0.05000" radius="0.10000"/>
+			</geometry>
+			<material name="mat_4_0">
+				<color rgba="0.00000 0.00000 0.00000 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 1.57080 -1.57080" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<cylinder length="0.05000" radius="0.10000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="right_back_wheel">
+		<inertial>
+			<origin rpy="0.00000 -1.57080 -1.57080" xyz="0.00000 0.00000 0.00000"/>
+			<mass value="0.30000"/>
+			<inertia ixx="0.00109" ixy="0" ixz="0" iyy="0.00109" iyz="0" izz="0.00204"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -1.57080 -1.57080" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<cylinder length="0.05000" radius="0.10000"/>
+			</geometry>
+			<material name="mat_5_0">
+				<color rgba="0.00000 0.00000 0.00000 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -1.57080 -1.57080" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<cylinder length="0.05000" radius="0.10000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="left_handle">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<mass value="1.00000"/>
+			<inertia ixx="0.00000" ixy="0" ixz="0" iyy="0.00000" iyz="0" izz="0.00000"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<cylinder length="0.40000" radius="0.03000"/>
+			</geometry>
+			<material name="mat_6_0">
+				<color rgba="1.00000 1.00000 1.00000 1.00000" />
+			</material>
+		</visual>
+	</link>
+	<link name="mid_handle">
+		<inertial>
+			<origin rpy="0.00000 1.57080 -1.57080" xyz="0.00000 0.00000 0.00000"/>
+			<mass value="0.30000"/>
+			<inertia ixx="0.01134" ixy="0" ixz="0" iyy="0.01134" iyz="0" izz="0.01812"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<cylinder length="0.30000" radius="0.03000"/>
+			</geometry>
+			<material name="mat_7_0">
+				<color rgba="1.00000 1.00000 1.00000 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 1.57080 -1.57080" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<cylinder length="0.30000" radius="0.30000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="right_handle">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<mass value="1.00000"/>
+			<inertia ixx="0.00000" ixy="0" ixz="0" iyy="0.00000" iyz="0" izz="0.00000"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<cylinder length="0.40000" radius="0.03000"/>
+			</geometry>
+			<material name="mat_8_0">
+				<color rgba="1.00000 1.00000 1.00000 1.00000" />
+			</material>
+		</visual>
+	</link>
+	<link name="body">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<mass value="3.30000"/>
+			<inertia ixx="0.01434" ixy="0" ixz="0" iyy="0.02479" iyz="0" izz="0.03312"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="/opt/anaconda3/envs/pybullet/lib/python3.7/site-packages/pybullet_data/mini_cheetah/meshes/mini_body.obj" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_-1_0">
+				<color rgba="1.00000 1.00000 1.00000 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="/opt/anaconda3/envs/pybullet/lib/python3.7/site-packages/pybullet_data/mini_cheetah/meshes/mini_body.obj" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="abduct_fr">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.03600 0.00000"/>
+			<mass value="0.54000"/>
+			<inertia ixx="0.00040" ixy="0" ixz="0" iyy="0.00070" iyz="0" izz="0.00058"/>
+		</inertial>
+		<visual>
+			<origin rpy="3.14159 -0.00000 1.57080" xyz="-0.05500 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="/opt/anaconda3/envs/pybullet/lib/python3.7/site-packages/pybullet_data/mini_cheetah/meshes/mini_abad.obj" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_0_0">
+				<color rgba="1.00000 1.00000 1.00000 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="3.14159 0.00000 1.57080" xyz="-0.05500 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="/opt/anaconda3/envs/pybullet/lib/python3.7/site-packages/pybullet_data/mini_cheetah/meshes/mini_abad.obj" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="thigh_fr">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.01600 -0.02000"/>
+			<mass value="0.63400"/>
+			<inertia ixx="0.00467" ixy="0" ixz="0" iyy="0.00467" iyz="0" izz="0.00114"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -1.57080 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="/opt/anaconda3/envs/pybullet/lib/python3.7/site-packages/pybullet_data/mini_cheetah/meshes/mini_upper_link.obj" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_1_0">
+				<color rgba="1.00000 1.00000 1.00000 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -1.57080 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="/opt/anaconda3/envs/pybullet/lib/python3.7/site-packages/pybullet_data/mini_cheetah/meshes/mini_upper_link.obj" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="shank_fr">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 -0.20900"/>
+			<mass value="0.06400"/>
+			<inertia ixx="0.00027" ixy="0" ixz="0" iyy="0.00028" iyz="0" izz="0.00002"/>
+		</inertial>
+		<visual>
+			<origin rpy="3.14159 0.00000 3.14159" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="/opt/anaconda3/envs/pybullet/lib/python3.7/site-packages/pybullet_data/mini_cheetah/meshes/mini_lower_link.obj" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_2_0">
+				<color rgba="1.00000 1.00000 1.00000 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="3.14159 0.00000 3.14159" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="/opt/anaconda3/envs/pybullet/lib/python3.7/site-packages/pybullet_data/mini_cheetah/meshes/mini_lower_link.obj" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="toe_fr">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<mass value="0.15000"/>
+			<inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<sphere radius="0.01500"/>
+			</geometry>
+			<material name="mat_3_0">
+				<color rgba="1.00000 1.00000 1.00000 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<sphere radius="0.01500"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="abduct_fl">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.03600 0.00000"/>
+			<mass value="0.54000"/>
+			<inertia ixx="0.00040" ixy="0" ixz="0" iyy="0.00070" iyz="0" izz="0.00058"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 0.00000 -1.57080" xyz="-0.05500 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="/opt/anaconda3/envs/pybullet/lib/python3.7/site-packages/pybullet_data/mini_cheetah/meshes/mini_abad.obj" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_4_0">
+				<color rgba="1.00000 1.00000 1.00000 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 0.00000 -1.57080" xyz="-0.05500 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="/opt/anaconda3/envs/pybullet/lib/python3.7/site-packages/pybullet_data/mini_cheetah/meshes/mini_abad.obj" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="thigh_fl">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.01600 -0.02000"/>
+			<mass value="0.63400"/>
+			<inertia ixx="0.00467" ixy="0" ixz="0" iyy="0.00467" iyz="0" izz="0.00114"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -1.57080 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="/opt/anaconda3/envs/pybullet/lib/python3.7/site-packages/pybullet_data/mini_cheetah/meshes/mini_upper_link.obj" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_5_0">
+				<color rgba="1.00000 1.00000 1.00000 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -1.57080 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="/opt/anaconda3/envs/pybullet/lib/python3.7/site-packages/pybullet_data/mini_cheetah/meshes/mini_upper_link.obj" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="shank_fl">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 -0.20900"/>
+			<mass value="0.06400"/>
+			<inertia ixx="0.00027" ixy="0" ixz="0" iyy="0.00028" iyz="0" izz="0.00002"/>
+		</inertial>
+		<visual>
+			<origin rpy="3.14159 0.00000 3.14159" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="/opt/anaconda3/envs/pybullet/lib/python3.7/site-packages/pybullet_data/mini_cheetah/meshes/mini_lower_link.obj" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_6_0">
+				<color rgba="1.00000 1.00000 1.00000 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="3.14159 0.00000 3.14159" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="/opt/anaconda3/envs/pybullet/lib/python3.7/site-packages/pybullet_data/mini_cheetah/meshes/mini_lower_link.obj" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="toe_fl">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<mass value="0.15000"/>
+			<inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<sphere radius="0.01500"/>
+			</geometry>
+			<material name="mat_7_0">
+				<color rgba="1.00000 1.00000 1.00000 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<sphere radius="0.01500"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="abduct_hr">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.03600 0.00000"/>
+			<mass value="0.54000"/>
+			<inertia ixx="0.00040" ixy="0" ixz="0" iyy="0.00070" iyz="0" izz="0.00058"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 1.57080" xyz="0.05500 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="/opt/anaconda3/envs/pybullet/lib/python3.7/site-packages/pybullet_data/mini_cheetah/meshes/mini_abad.obj" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_8_0">
+				<color rgba="1.00000 1.00000 1.00000 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -0.00000 1.57080" xyz="0.05500 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="/opt/anaconda3/envs/pybullet/lib/python3.7/site-packages/pybullet_data/mini_cheetah/meshes/mini_abad.obj" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="thigh_hr">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.01600 -0.02000"/>
+			<mass value="0.63400"/>
+			<inertia ixx="0.00467" ixy="0" ixz="0" iyy="0.00467" iyz="0" izz="0.00114"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -1.57080 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="/opt/anaconda3/envs/pybullet/lib/python3.7/site-packages/pybullet_data/mini_cheetah/meshes/mini_upper_link.obj" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_9_0">
+				<color rgba="1.00000 1.00000 1.00000 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -1.57080 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="/opt/anaconda3/envs/pybullet/lib/python3.7/site-packages/pybullet_data/mini_cheetah/meshes/mini_upper_link.obj" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="shank_hr">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 -0.20900"/>
+			<mass value="0.06400"/>
+			<inertia ixx="0.00027" ixy="0" ixz="0" iyy="0.00028" iyz="0" izz="0.00002"/>
+		</inertial>
+		<visual>
+			<origin rpy="3.14159 0.00000 3.14159" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="/opt/anaconda3/envs/pybullet/lib/python3.7/site-packages/pybullet_data/mini_cheetah/meshes/mini_lower_link.obj" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_10_0">
+				<color rgba="1.00000 1.00000 1.00000 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="3.14159 0.00000 3.14159" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="/opt/anaconda3/envs/pybullet/lib/python3.7/site-packages/pybullet_data/mini_cheetah/meshes/mini_lower_link.obj" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="toe_hr">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<mass value="0.15000"/>
+			<inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<sphere radius="0.01500"/>
+			</geometry>
+			<material name="mat_11_0">
+				<color rgba="1.00000 1.00000 1.00000 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<sphere radius="0.01500"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="abduct_hl">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.03600 0.00000"/>
+			<mass value="0.54000"/>
+			<inertia ixx="0.00040" ixy="0" ixz="0" iyy="0.00070" iyz="0" izz="0.00058"/>
+		</inertial>
+		<visual>
+			<origin rpy="3.14159 -0.00000 -1.57080" xyz="0.05500 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="/opt/anaconda3/envs/pybullet/lib/python3.7/site-packages/pybullet_data/mini_cheetah/meshes/mini_abad.obj" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_12_0">
+				<color rgba="1.00000 1.00000 1.00000 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="3.14159 -0.00000 -1.57080" xyz="0.05500 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="/opt/anaconda3/envs/pybullet/lib/python3.7/site-packages/pybullet_data/mini_cheetah/meshes/mini_abad.obj" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="thigh_hl">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.01600 -0.02000"/>
+			<mass value="0.63400"/>
+			<inertia ixx="0.00467" ixy="0" ixz="0" iyy="0.00467" iyz="0" izz="0.00114"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -1.57080 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="/opt/anaconda3/envs/pybullet/lib/python3.7/site-packages/pybullet_data/mini_cheetah/meshes/mini_upper_link.obj" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_13_0">
+				<color rgba="1.00000 1.00000 1.00000 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -1.57080 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="/opt/anaconda3/envs/pybullet/lib/python3.7/site-packages/pybullet_data/mini_cheetah/meshes/mini_upper_link.obj" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="shank_hl">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 -0.20900"/>
+			<mass value="0.06400"/>
+			<inertia ixx="0.00027" ixy="0" ixz="0" iyy="0.00028" iyz="0" izz="0.00002"/>
+		</inertial>
+		<visual>
+			<origin rpy="3.14159 0.00000 3.14159" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="/opt/anaconda3/envs/pybullet/lib/python3.7/site-packages/pybullet_data/mini_cheetah/meshes/mini_lower_link.obj" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_14_0">
+				<color rgba="1.00000 1.00000 1.00000 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="3.14159 0.00000 3.14159" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="/opt/anaconda3/envs/pybullet/lib/python3.7/site-packages/pybullet_data/mini_cheetah/meshes/mini_lower_link.obj" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="toe_hl">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<mass value="0.15000"/>
+			<inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<sphere radius="0.01500"/>
+			</geometry>
+			<material name="mat_15_0">
+				<color rgba="1.00000 1.00000 1.00000 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<sphere radius="0.01500"/>
+			</geometry>
+		</collision>
+	</link>
+	<joint name="base_to_left_hinge" type="revolute">
+		<parent link="base_link"/>
+		<child link="left_hinge"/>
+		<limit effort="100.00000" lower="-0.50000" upper="0.50000" velocity="100.00000"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="0.20000 0.00000 0.00000"/>
+		<axis xyz="0.00000 0.00000 1.00000"/>
+	</joint>
+	<joint name="left_hinge_to_left_front_wheel" type="continuous">
+		<parent link="left_hinge"/>
+		<child link="left_front_wheel"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 0.00000 -0.00000" xyz="0.00000 0.20000 0.00000"/>
+		<axis xyz="0.00000 0.00005 -1.00000"/>
+	</joint>
+	<joint name="base_to_right_hinge" type="revolute">
+		<parent link="base_link"/>
+		<child link="right_hinge"/>
+		<limit effort="100.00000" lower="-0.50000" upper="0.50000" velocity="100.00000"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="0.20000 0.00000 0.00000"/>
+		<axis xyz="0.00000 0.00000 1.00000"/>
+	</joint>
+	<joint name="right_hinge_to_right_front_wheel" type="continuous">
+		<parent link="right_hinge"/>
+		<child link="right_front_wheel"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.20000 0.00000"/>
+		<axis xyz="0.00000 0.00005 1.00000"/>
+	</joint>
+	<joint name="base_to_left_back_wheel" type="continuous">
+		<parent link="base_link"/>
+		<child link="left_back_wheel"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="-0.20000 0.17500 0.00000"/>
+		<axis xyz="0.00000 0.00005 -1.00000"/>
+	</joint>
+	<joint name="base_to_right_back_wheel" type="continuous">
+		<parent link="base_link"/>
+		<child link="right_back_wheel"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="-0.20000 -0.17500 0.00000"/>
+		<axis xyz="0.00000 0.00005 1.00000"/>
+	</joint>
+	<joint name="left_handle_base" type="fixed">
+		<parent link="base_link"/>
+		<child link="left_handle"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 0.30000 0.00000" xyz="0.20000 -0.10000 0.25000"/>
+		<axis xyz="0.00000 0.00000 0.00000"/>
+	</joint>
+	<joint name="mid_handle_base" type="fixed">
+		<parent link="left_handle"/>
+		<child link="mid_handle"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="1.57075 0.00000 -0.00000" xyz="0.00000 0.10000 0.16000"/>
+		<axis xyz="0.00000 0.00000 0.00000"/>
+	</joint>
+	<joint name="right_handle_base" type="fixed">
+		<parent link="base_link"/>
+		<child link="right_handle"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 0.30000 0.00000" xyz="0.20000 0.10000 0.25000"/>
+		<axis xyz="0.00000 0.00000 0.00000"/>
+	</joint>
+	<joint name="joint_dummy1" type="fixed">
+		<parent link="base_link"/>
+		<child link="body"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 0.00000 0.00000" xyz="0.45000 0.00000 0.80000"/>
+		<axis xyz="0.00000 0.00000 1.00000"/>
+	</joint>
+	<joint name="torso_to_abduct_fr_j" type="continuous">
+		<parent link="body"/>
+		<child link="abduct_fr"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="0.19000 -0.04900 0.00000"/>
+		<axis xyz="1.00000 0.00000 0.00000"/>
+	</joint>
+	<joint name="abduct_fr_to_thigh_fr_j" type="continuous">
+		<parent link="abduct_fr"/>
+		<child link="thigh_fr"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 -0.06200 0.00000"/>
+		<axis xyz="0.00000 -1.00000 0.00000"/>
+	</joint>
+	<joint name="thigh_fr_to_knee_fr_j" type="continuous">
+		<parent link="thigh_fr"/>
+		<child link="shank_fr"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 -0.20900"/>
+		<axis xyz="0.00000 -1.00000 0.00000"/>
+	</joint>
+	<joint name="toe_fr_joint" type="fixed">
+		<parent link="shank_fr"/>
+		<child link="toe_fr"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 -0.18000"/>
+		<axis xyz="0.00000 0.00000 0.00000"/>
+	</joint>
+	<joint name="torso_to_abduct_fl_j" type="continuous">
+		<parent link="body"/>
+		<child link="abduct_fl"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="0.19000 0.04900 0.00000"/>
+		<axis xyz="1.00000 0.00000 0.00000"/>
+	</joint>
+	<joint name="abduct_fl_to_thigh_fl_j" type="continuous">
+		<parent link="abduct_fl"/>
+		<child link="thigh_fl"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.06200 0.00000"/>
+		<axis xyz="0.00000 -1.00000 0.00000"/>
+	</joint>
+	<joint name="thigh_fl_to_knee_fl_j" type="continuous">
+		<parent link="thigh_fl"/>
+		<child link="shank_fl"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 -0.20900"/>
+		<axis xyz="0.00000 -1.00000 0.00000"/>
+	</joint>
+	<joint name="toe_fl_joint" type="fixed">
+		<parent link="shank_fl"/>
+		<child link="toe_fl"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 -0.18000"/>
+		<axis xyz="0.00000 0.00000 0.00000"/>
+	</joint>
+	<joint name="torso_to_abduct_hr_j" type="continuous">
+		<parent link="body"/>
+		<child link="abduct_hr"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="-0.19000 -0.04900 0.00000"/>
+		<axis xyz="1.00000 0.00000 0.00000"/>
+	</joint>
+	<joint name="abduct_hr_to_thigh_hr_j" type="continuous">
+		<parent link="abduct_hr"/>
+		<child link="thigh_hr"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 -0.06200 0.00000"/>
+		<axis xyz="0.00000 -1.00000 0.00000"/>
+	</joint>
+	<joint name="thigh_hr_to_knee_hr_j" type="continuous">
+		<parent link="thigh_hr"/>
+		<child link="shank_hr"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 -0.20900"/>
+		<axis xyz="0.00000 -1.00000 0.00000"/>
+	</joint>
+	<joint name="toe_hr_joint" type="fixed">
+		<parent link="shank_hr"/>
+		<child link="toe_hr"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 -0.18000"/>
+		<axis xyz="0.00000 0.00000 0.00000"/>
+	</joint>
+	<joint name="torso_to_abduct_hl_j" type="continuous">
+		<parent link="body"/>
+		<child link="abduct_hl"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="-0.19000 0.04900 0.00000"/>
+		<axis xyz="1.00000 0.00000 0.00000"/>
+	</joint>
+	<joint name="abduct_hl_to_thigh_hl_j" type="continuous">
+		<parent link="abduct_hl"/>
+		<child link="thigh_hl"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.06200 0.00000"/>
+		<axis xyz="0.00000 -1.00000 0.00000"/>
+	</joint>
+	<joint name="thigh_hl_to_knee_hl_j" type="continuous">
+		<parent link="thigh_hl"/>
+		<child link="shank_hl"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 -0.20900"/>
+		<axis xyz="0.00000 -1.00000 0.00000"/>
+	</joint>
+	<joint name="toe_hl_joint" type="fixed">
+		<parent link="shank_hl"/>
+		<child link="toe_hl"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 -0.18000"/>
+		<axis xyz="0.00000 0.00000 0.00000"/>
+	</joint>
+</robot>
